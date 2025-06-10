@@ -1001,6 +1001,7 @@ do
     end;
 
     function Funcs:AddKeyPicker(Idx, Info)
+        if InputService:GetFocusedTextBox() then return end
         local ParentObj = self;
         local ToggleLabel = self.TextLabel;
         local Container = self.Container;
@@ -1253,6 +1254,7 @@ do
 
                 local Event;
                 Event = InputService.InputBegan:Connect(function(Input)
+                    if InputService:GetFocusedTextBox() then return end
                     local Key;
 
                     if Input.UserInputType == Enum.UserInputType.Keyboard then
